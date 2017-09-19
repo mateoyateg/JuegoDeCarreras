@@ -54,9 +54,6 @@ def game():
         pygame.display.update()
         pygame.time.delay(10)
 
-        
-        
-        
 
 def main(args):
     return 0
