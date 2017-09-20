@@ -8,7 +8,7 @@ class Villano(Sprite):
 	def __init__(self,coord,vel):
 		Sprite.__init__(self)
 		teclas = pygame.key.get_pressed()
-		self.image = util.cargar_imagen('imagenes/hueco.png')
+		self.image = util.cargar_imagen('imagenes/obstaculo.png')
 		self.rect = self.image.get_rect()
 		self.rect.move_ip(coord[0], coord[0])
 		self.velocidad=vel
