@@ -11,18 +11,20 @@ ICON_SIZE = 32
 def game():
     pygame.init()
     pygame.mixer.init()
+    
     screen = pygame.display.set_mode( (SCREEN_WIDTH,SCREEN_HEIGHT) )
-    pygame.display.set_caption( "El Socio" )
+    pygame.display.set_caption( "Autos - Juego" )
     background_image = util.cargar_imagen('imagenes/fondo.jpg');
     pierde_vida = util.cargar_sonido('sonidos/pierde_vida.wav')
     pygame.mouse.set_visible( False )
     temporizador = pygame.time.Clock()
     heroe = Heroe()
-    villano = [Villano((100,80),randint(1,10)),
-               Villano((100,150),randint(1,10)),
-               Villano((200,220),randint(1,10)),
-               Villano((300,300),randint(1,10)),
-               Villano((100,350),randint(1,10))]
+    villano = [Villano((10,150),randint(1,5)),
+			   Villano((100,150),randint(1,5)),
+               Villano((200,220),randint(1,5)),
+               Villano((300,350),randint(1,5)),
+               Villano((370,350),randint(1,5)),
+               ]
 	
     while True:
         fuente = pygame.font.Font(None,25)
@@ -34,13 +36,16 @@ def game():
             n.update()
             
         for n in villano:
+			if n.rect.x == heroe.rect.x and heroe.rect.colliderect(n.rect) == 0:
+				heroe.puntos=heroe.puntos+1
+
+        for n in villano:
             if heroe.rect.colliderect(n.rect):
                 heroe.image = heroe.imagenes[1]
                 pierde_vida.play()
                 if heroe.vida > 0:
                     heroe.vida=heroe.vida-1
-                n.velocidad=randint(1,10)    
-        
+
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 sys.exit()
@@ -55,8 +60,7 @@ def game():
         pygame.time.delay(10)
 
 
-def main(args):
-    return 0
+
 
 if __name__ == '__main__':
     game();
