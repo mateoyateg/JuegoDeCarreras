@@ -11,7 +11,7 @@ class Heroe(Sprite):
 		self.vida = 1000
 		self.estado = "bajando"
 		self.imagenes = [util.cargar_imagen('imagenes/auto.png'),
-						util.cargar_imagen('imagenes/auto.png'),
+						util.cargar_imagen('imagenes/auto_chocado.png'),
 						util.cargar_imagen('imagenes/auto.png'),
 						util.cargar_imagen('imagenes/auto.png')]
 		self.image = self.imagenes[0]

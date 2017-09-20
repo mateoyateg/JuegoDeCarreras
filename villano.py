@@ -16,10 +16,10 @@ class Villano(Sprite):
 	def update(self):
 		teclas = pygame.key.get_pressed()
 		if self.velocidad == 0:
-			self.velocidad=1
-		if teclas[K_RIGHT]:
-			self.velocidad=self.velocidad+1
-		elif teclas[K_LEFT] and self.velocidad > 0:
+			self.velocidad=randint(1,3)
+		if teclas[K_LEFT]:
+			self.velocidad=randint(3,6)
+		elif teclas[K_RIGHT] and self.velocidad > 0:
 			self.velocidad=self.velocidad-1
 		self.rect.x += self.velocidad 
 		self.rect.x = self.rect.x % 640
