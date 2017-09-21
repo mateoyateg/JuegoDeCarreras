@@ -30,4 +30,4 @@ class Heroe(Sprite):
 				self.image = self.imagenes[0]
 				
 		else:
-			self.image = self.imagenes[3]
+			self.image = self.imagenes[1]

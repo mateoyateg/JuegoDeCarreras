@@ -35,7 +35,7 @@ def game():
             n.update()
             
         for n in villano:
-			if n.rect.x == heroe.rect.x and heroe.rect.colliderect(n.rect) == 0 and heroe.vida > 0:
+			if n.rect.x == heroe.rect.x and heroe.rect.colliderect(n.rect) == False and heroe.vida > 0:
 				heroe.puntos=heroe.puntos+1
 
         for n in villano:
